@@ -1,0 +1,5 @@
+require("wylderfan.remap")
+require("wylderfan.set")
+require("wylderfan.packer")
+require('lsp')
+print("Hello Wylderfan!")
