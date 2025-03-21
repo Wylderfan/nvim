@@ -106,9 +106,28 @@ lspconfig.vimls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
-
--- Add more language servers as needed, for example:
--- lspconfig.pyright.setup({
---   capabilities = capabilities,
---   on_attach = on_attach,
--- })
+-- clangd setup
+lspconfig.clangd.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  cmd = {
+    "/opt/homebrew/opt/llvm/bin/clangd",
+    "--background-index",
+    "--suggest-missing-includes",
+    "--clang-tidy",
+    "--header-insertion=iwyu",
+  },
+  filetypes = { "c", "cpp", "objc", "objcpp" },
+  root_dir = function(fname)
+    return lspconfig.util.root_pattern(
+      "compile_commands.json",
+      "compile_flags.txt",
+      ".git"
+    )(fname) or vim.fn.getcwd()
+  end,
+  init_options = {
+    completeUnimported = true,
+    usePlaceholders = true,
+    checkUpdates = true,
+  },
+})
