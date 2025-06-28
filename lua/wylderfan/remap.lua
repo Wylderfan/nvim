@@ -2,8 +2,8 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>fv", vim.cmd.Ex) -- file viewer
 vim.keymap.set("v", "<leader>y", '"+y') -- copy to clipboard buffer
 vim.keymap.set("n", "<leader>ya", 'gg"+yG``') -- copy file to clipboard buffer
-vim.keymap.set("n", "J", '10j')
-vim.keymap.set("n", "K", '10k')
+vim.keymap.set({"n", "v"}, "J", '10j')
+vim.keymap.set({"n", "v"}, "K", '10k')
 
 -- Terminal commands
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
