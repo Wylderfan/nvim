@@ -5,13 +5,13 @@ vim.keymap.set("n", "<leader>ya", 'gg"+yG``') -- copy file to clipboard buffer
 vim.keymap.set({"n", "v"}, "J", '10j')
 vim.keymap.set({"n", "v"}, "K", '10k')
 
--- Terminal commands
-vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
--- Create custom terminal command that opens in current directory
-vim.api.nvim_create_user_command('Term', function()
-    -- Get current file's directory
-    local current_dir = vim.fn.expand('%:p:h')
-    -- Open terminal in that directory
-    vim.cmd('lcd ' .. current_dir)
-    vim.cmd('terminal')
-end, {})
+local harpoon = require("harpoon")
+harpoon:setup() -- REQUIRED
+
+vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
+vim.keymap.set("n", "<leader>t", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+
+vim.keymap.set("n", "<leader>q", function() harpoon:list():select(1) end)
+vim.keymap.set("n", "<leader>w", function() harpoon:list():select(2) end)
+vim.keymap.set("n", "<leader>e", function() harpoon:list():select(3) end)
+vim.keymap.set("n", "<leader>r", function() harpoon:list():select(4) end)
