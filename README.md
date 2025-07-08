@@ -194,7 +194,7 @@ Ensure Treesitter parsers are installed:
 - `L` - Show hover information
 - `gi` - Go to implementation
 - `gr` - Show references
-- `<space>rn` - Rename symbol
+- `<space>nn` - Rename symbol
 - `<space>ca` - Code actions
 - `<Ctrl-k>` - Signature help
 
