@@ -174,6 +174,7 @@ Ensure Treesitter parsers are installed:
 
 ### Harpoon (Quick File Switching)
 - `<leader>a` - Add file to harpoon
+- `<leader>s` - Remove current file from harpoon
 - `<leader>t` - Toggle harpoon menu
 - `<leader>q` - Navigate to file 1
 - `<leader>w` - Navigate to file 2
