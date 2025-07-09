@@ -9,6 +9,7 @@ local harpoon = require("harpoon")
 harpoon:setup() -- REQUIRED
 
 vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
+vim.keymap.set("n", "<leader>s", function() harpoon:list():remove() end)
 vim.keymap.set("n", "<leader>t", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
 vim.keymap.set("n", "<leader>q", function() harpoon:list():select(1) end)
