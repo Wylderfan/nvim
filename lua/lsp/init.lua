@@ -26,6 +26,7 @@ mason_lspconfig.setup({
     "bashls",
     "dockerls",
   },
+  automatic_installation = false
 })
 
 -- Completion setup
@@ -39,7 +40,6 @@ cmp.setup({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.abort(),
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
     ['<Tab>'] = cmp.mapping.select_next_item(),
     ['<S-Tab>'] = cmp.mapping.select_prev_item(),
@@ -51,6 +51,13 @@ cmp.setup({
     { name = 'path' },
   })
 })
+
+-- Autopairs integration with cmp
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)
 
 -- LSP setup
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -90,10 +97,9 @@ lspconfig.lua_ls.setup({
       -- Do not send telemetry data
       telemetry = {
         enable = false,
-	},
-},
-},
-
+      },
+    },
+  },
 })
 -- Python setup (will work with PyGame)
 lspconfig.pyright.setup({

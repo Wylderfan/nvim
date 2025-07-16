@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+
 vim.keymap.set("n", "<leader>fv", vim.cmd.Ex) -- file viewer
 vim.keymap.set("v", "<leader>y", '"+y') -- copy to clipboard buffer
 vim.keymap.set("n", "<leader>ya", 'gg"+yG``') -- copy file to clipboard buffer

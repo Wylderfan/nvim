@@ -29,6 +29,27 @@ return require('packer').startup(function(use)
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use('tpope/vim-fugitive')
 
+  use {
+  'windwp/nvim-autopairs',
+  event = "InsertEnter",
+  config = function()
+    require('nvim-autopairs').setup({
+      check_ts = true,                        -- Use treesitter for better context
+      fast_wrap = {
+        map = '<C-e>',                        -- Changed from <M-e> to <C-e>
+        chars = { '{', '[', '(', '"', "'" },  -- Characters that can wrap
+        pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], '%s+', ''),
+        offset = 0,
+        end_key = '$',
+        keys = 'qwertyuiopzxcvbnmasdfghjkl',
+        check_comma = true,
+        highlight = 'PmenuSel',
+        highlight_grey = 'LineNr'
+      },
+    })
+  end
+}
+
   -- LSP Support
   use {
     'neovim/nvim-lspconfig',
