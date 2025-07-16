@@ -105,6 +105,11 @@ _G.packer_plugins = {
     path = "/Users/connor/.local/share/nvim/site/pack/packer/start/gruvbox-material",
     url = "https://github.com/sainnhe/gruvbox-material"
   },
+  harpoon = {
+    loaded = true,
+    path = "/Users/connor/.local/share/nvim/site/pack/packer/start/harpoon",
+    url = "https://github.com/ThePrimeagen/harpoon"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/Users/connor/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
@@ -114,6 +119,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/connor/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  ["nvim-autopairs"] = {
+    config = { "\27LJ\2\nÖ\2\0\0\t\0\14\0\0186\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0005\4\5\0=\4\6\0036\4\a\0009\4\b\4'\6\t\0'\a\n\0'\b\v\0B\4\4\2=\4\f\3=\3\r\2B\0\2\1K\0\1\0\14fast_wrap\fpattern\5\b%s+\25 [%'%\"%)%>%]%)%}%,] \tgsub\vstring\nchars\1\6\0\0\6{\6[\6(\6\"\6'\1\0\t\fpattern\0\bmap\n<C-e>\16check_comma\2\19highlight_grey\vLineNr\tkeys\31qwertyuiopzxcvbnmasdfghjkl\fend_key\6$\14highlight\rPmenuSel\nchars\0\voffset\3\0\1\0\2\14fast_wrap\0\rcheck_ts\2\nsetup\19nvim-autopairs\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/connor/.local/share/nvim/site/pack/packer/opt/nvim-autopairs",
+    url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -157,6 +170,13 @@ time([[Defining packer_plugins]], false)
 time([[Config for gruvbox-material]], true)
 try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0!colorscheme gruvbox-material\bcmd\bvim\0", "config", "gruvbox-material")
 time([[Config for gruvbox-material]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Event lazy-loads
+time([[Defining lazy-load event autocommands]], true)
+vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'nvim-autopairs'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
+time([[Defining lazy-load event autocommands]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
