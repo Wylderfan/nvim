@@ -43,12 +43,14 @@ cmp.setup({
   })
 })
 
--- Autopairs integration with cmp
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-cmp.event:on(
-  'confirm_done',
-  cmp_autopairs.on_confirm_done()
-)
+-- Autopairs integration with cmp (only if autopairs is available)
+local autopairs_ok, cmp_autopairs = pcall(require, 'nvim-autopairs.completion.cmp')
+if autopairs_ok then
+  cmp.event:on(
+    'confirm_done',
+    cmp_autopairs.on_confirm_done()
+  )
+end
 
 -- LSP setup
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
