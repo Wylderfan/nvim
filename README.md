@@ -6,6 +6,7 @@ This is a personal Neovim configuration featuring LSP support, fuzzy finding, gi
 
 - **Plugin Management**: Packer.nvim for easy plugin management
 - **LSP Support**: Complete language server setup with autocompletion
+- **Auto-pairing**: Automatic bracket, quote, and parentheses pairing with nvim-autopairs
 - **Fuzzy Finding**: Telescope for file and text search
 - **Quick Navigation**: Harpoon for rapid file switching
 - **Git Integration**: Fugitive for git operations within Neovim
@@ -113,6 +114,8 @@ Inside Neovim, run:
 
 This will install all plugins defined in `lua/wylderfan/packer.lua`.
 
+**Note**: The configuration includes conditional loading for autopairs integration, ensuring the LSP functionality works even if autopairs fails to load.
+
 ### 4. Install Language Servers
 
 The configuration uses Mason to manage language servers. After the plugins are installed, Mason will automatically install the configured language servers:
@@ -189,6 +192,12 @@ Ensure Treesitter parsers are installed:
 - `<leader>y` - Copy selection to system clipboard
 - `<leader>ya` - Copy entire file to system clipboard
 
+### Auto-pairing
+- Automatic closing of brackets `()`, `[]`, `{}`
+- Automatic closing of quotes `"`, `'`
+- `<Ctrl-e>` - Fast wrap selection with brackets/quotes
+- Intelligent pairing based on file context (using Treesitter)
+
 ### LSP (When in supported files)
 - `gd` - Go to definition
 - `gD` - Go to declaration
@@ -212,6 +221,7 @@ Ensure Treesitter parsers are installed:
 2. **Language servers not working**: Run `:Mason` and check if servers are installed
 3. **Telescope errors**: Ensure ripgrep is installed
 4. **Clangd not found**: Check the clangd path in `lua/lsp/init.lua` matches your installation
+5. **Autopairs not working**: The configuration includes error handling for autopairs - if the plugin fails to load, completion will still work without auto-pairing
 
 ### Platform-Specific Notes
 
