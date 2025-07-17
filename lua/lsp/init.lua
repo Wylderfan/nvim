@@ -5,7 +5,16 @@ local cmp = require('cmp')
 local luasnip = require('luasnip')
 
 -- Mason Setup
-mason.setup()
+mason.setup({
+    ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+    }
+})
+
 mason_lspconfig.setup({
   ensure_installed = { 
     -- Add the language servers you want to install here
@@ -16,7 +25,7 @@ mason_lspconfig.setup({
     "gopls",
     "bashls",
     "dockerls",
-  }
+  },
 })
 
 -- Completion setup
