@@ -6,6 +6,7 @@ vim.keymap.set("n", "<leader>ya", 'gg"+yG``') -- copy file to clipboard buffer
 vim.keymap.set({"n", "v"}, "J", '10j')
 vim.keymap.set({"n", "v"}, "K", '10k') -- 10x jumps with K and J
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>") -- easy highlight removal
+vim.keymap.set("n", "<leader>#", "i#<Esc>") -- easy commenting
 
 -- Clear search highlights with Escape
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -27,10 +28,10 @@ vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
 vim.keymap.set("n", "<leader>s", function() harpoon:list():remove() end)
 vim.keymap.set("n", "<leader>t", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
-vim.keymap.set("n", "<leader>q", function() harpoon:list():select(1) end)
-vim.keymap.set("n", "<leader>w", function() harpoon:list():select(2) end)
-vim.keymap.set("n", "<leader>e", function() harpoon:list():select(3) end)
-vim.keymap.set("n", "<leader>r", function() harpoon:list():select(4) end)
+vim.keymap.set("n", "<leader>1", function() harpoon:list():select(1) end)
+vim.keymap.set("n", "<leader>2", function() harpoon:list():select(2) end)
+vim.keymap.set("n", "<leader>3", function() harpoon:list():select(3) end)
+vim.keymap.set("n", "<leader>4", function() harpoon:list():select(4) end)
 
 -- Configure how new splits should be opened
 vim.o.splitright = true

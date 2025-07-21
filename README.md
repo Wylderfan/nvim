@@ -179,10 +179,10 @@ Ensure Treesitter parsers are installed:
 - `<leader>a` - Add file to harpoon
 - `<leader>s` - Remove current file from harpoon
 - `<leader>t` - Toggle harpoon menu
-- `<leader>q` - Navigate to file 1
-- `<leader>w` - Navigate to file 2
-- `<leader>e` - Navigate to file 3
-- `<leader>r` - Navigate to file 4
+- `<leader>1` - Navigate to file 1
+- `<leader>2` - Navigate to file 2
+- `<leader>3` - Navigate to file 3
+- `<leader>4` - Navigate to file 4
 
 ### Movement
 - `J` - Move 10 lines down
@@ -191,6 +191,9 @@ Ensure Treesitter parsers are installed:
 ### Clipboard
 - `<leader>y` - Copy selection to system clipboard
 - `<leader>ya` - Copy entire file to system clipboard
+
+### Quick Comment
+- `<leader>#` - Keybind to quickly comment out a line
 
 ### Auto-pairing
 - Automatic closing of brackets `()`, `[]`, `{}`
