@@ -7,6 +7,7 @@ vim.keymap.set({"n", "v"}, "J", '10j')
 vim.keymap.set({"n", "v"}, "K", '10k') -- 10x jumps with K and J
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>") -- easy highlight removal
 vim.keymap.set("n", "<leader>#", "i#<Esc>") -- easy commenting
+vim.keymap.set("n", "<leader>$", "A # type: ignore<Esc>") -- easy type ignoring
 
 -- Clear search highlights with Escape
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
